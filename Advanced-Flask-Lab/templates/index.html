@@ -4,7 +4,11 @@
 		<title>Instagram</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+		<link rel="stylesheet" href="static/css/main.css" />
+			<script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
+			<script src="static/js/jquery.poptrox.min.js"></script>
+			<script src="static/js/skel.min.js"></script>
+			<script src="static/js/main.js"></script>
 	</head>
 	<body>
 
@@ -13,9 +17,9 @@
 
 				<!-- Header -->
 					<header id="header">
-						<span class="avatar"><img src="{{url_for('static',filename='images/avatar.jpg')}}" alt="" /></span>
+						<span class="avatar"><img src="static/images/avatar.jpg" alt="" /></span>
 
-            <h1>Description</h1>
+            <h1>"{{u_bio}}"</h1>
             <br>
             <!-- About me button -->
             <a href="#"><button style="color:white;width:40%" >More about me</button></a>
@@ -38,20 +42,28 @@
                 
                 <div>
                       <a href="">
-                        <img src="static/images/thumbs/01.jpg" alt="" />
+                        <img src="{{img}}" alt="" />
                         <h3>Caption... blah blah blah</h3>
                       </a>
                 
                       <a href="">
-                        <img src="url_for('static',filename='images/thumbs/02.jpg')" alt="" />
+                        <img src="static/images/thumbs/02.jpg" alt="" />
                         <h3>Caption... blah blah blah</h3>
                       </a>
                 </div>    
                 <div>
                   <a href="">
-                        <img src="{{url_for('static',filename='images/thumbs/03.jpg')}}" alt="" />
+                        <img src="static/images/thumbs/03.jpg" alt="" />
                         <h3>Caption... blah blah blah</h3>
                       </a>
+                      <ul id="myUL">
+    									{% for i in posts %}
+    									<a href="">
+     								   <li><img src="{{i}}"></li>
+     								   <h3>Caption... blah blah blah</h3>
+     								 </a>
+ 									    {% endfor %}
+										  </ul>
                 </div>  
 
 							</section>
@@ -66,10 +78,7 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="{{url_for('static',filename='js/jquery.min.js')}}"></script>
-			<script src="static/js/jquery.poptrox.min.js"></script>
-			<script src="static/js/skel.min.js"></script>
-			<script src="static/js/main.js"></script>
+		
 
 	</body>
 </html>
